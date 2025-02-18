@@ -36,7 +36,7 @@ class TwitterService:
     async def get_tweets(self, params: dict) -> dict:
         url = f'{self.base_url}/tweets?{params["ids"]}&{params["tweet_fields"]}'
 
-        return await self._send_request_without_params(url)
+        return await self._send_request(url)
 
 
     async def get_users(self, params: dict) -> dict:
@@ -44,7 +44,7 @@ class TwitterService:
             f"{self.base_url}/users/by?{params['usernames']}&{params['user_fields']}"
         )
 
-        return await self._send_request_without_params(url)
+        return await self._send_request(url)
 
 
     async def user_mentions(self, params: dict, id: dict) -> dict:
